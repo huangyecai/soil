@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yecai.garden.soil.hr.user.dao.UserDao">
+	<sql id="dateList1">
+		user_id,
+		password,
+		auth_flag,
+		login_ip,
+		login_date,
+		create_by,
+		create_date,
+		update_by,
+		update_date
+	</sql>
+	<sql id="dateList">
+		id,
+		family_name AS "familyName",
+		first_name AS "firstName",
+		full_name AS "name",
+		enterprise_id AS "enterpriseId",
+		organization_id AS
+		"organizationId",
+		mobile,
+		photo,
+		sex,
+		email,
+		weixin,
+		qq,
+		office_address AS
+		"officeAddress",
+		job,
+		job_number AS "jobNumber",
+		education,
+		school,
+		major,
+		graduation_date AS "graduationDate",
+		natives,
+		nation,
+		identity,
+		passport,
+		social,
+		bank_account AS "bankAccount",
+		birthday,
+		marriage,
+		address,
+		emergency_contact AS "emergencyContact",
+		emergency_phone AS
+		"emergencyPhone",
+		tel_phone AS "telPhone",
+		create_by AS "createBy",
+		create_date AS "createDate",
+		update_by AS "updateBy",
+		update_date AS
+		"updateDate",
+		is_upload AS "isUpload",
+		is_delete AS "isDelete"
+	</sql>
+	<select id="get" resultType="yecai.garden.soil.hr.user.entity.User">
+		select
+		<include refid="dateList" />
+		from sys_userinfo
+		where id = #{id,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据编号获得投票 -->
+	<select id="getById" resultType="yecai.garden.soil.hr.user.entity.User">
+		SELECT
+		*
+		FROM sys_userinfo a
+
+		WHERE
+		a.id = #{id}
+	</select>
+	<insert id="insertInfo">
+		insert into sys_userinfo (id, family_name,
+		first_name,
+		full_name, enterprise_id, organization_id,
+		mobile, photo,
+		sex, email, weixin,
+		qq, office_address, job,
+		job_number, education,
+		school,
+		major, graduation_date, natives,
+		nation, identity, passport,
+		social, bank_account, birthday,
+		marriage, address, emergency_contact,
+		emergency_phone, tel_phone, create_by,
+		create_date, update_by,
+		update_date,
+		is_upload, is_delete, link_list
+		)
+		values
+		(#{id,jdbcType=VARCHAR}, #{familyName,jdbcType=VARCHAR},
+		#{firstName,jdbcType=VARCHAR},
+		#{name,jdbcType=VARCHAR},
+		#{enterpriseId,jdbcType=VARCHAR}, #{organizationId,jdbcType=VARCHAR},
+		#{mobile,jdbcType=VARCHAR}, #{photo,jdbcType=VARCHAR},
+		#{sex,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR},
+		#{weixin,jdbcType=VARCHAR},
+		#{qq,jdbcType=VARCHAR},
+		#{officeAddress,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR},
+		#{jobNumber,jdbcType=VARCHAR}, #{education,jdbcType=VARCHAR},
+		#{school,jdbcType=VARCHAR},
+		#{major,jdbcType=VARCHAR},
+		#{graduationDate,jdbcType=VARCHAR}, #{natives,jdbcType=VARCHAR},
+		#{nation,jdbcType=VARCHAR}, #{identity,jdbcType=VARCHAR},
+		#{passport,jdbcType=VARCHAR},
+		#{social,jdbcType=VARCHAR},
+		#{bankAccount,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR},
+		#{marriage,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
+		#{emergencyContact,jdbcType=VARCHAR},
+		#{emergencyPhone,jdbcType=VARCHAR}, #{telPhone,jdbcType=VARCHAR},
+		#{createBy,jdbcType=VARCHAR},
+		#{createDate,jdbcType=TIMESTAMP},
+		#{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+		#{isUpload,jdbcType=TINYINT}, #{isDelete,jdbcType=TINYINT},
+		#{linkList,jdbcType=LONGVARCHAR}
+		)
+	</insert>
+	<insert id="insert">
+		insert into
+		sys_user(user_id,password,auth_flag,login_ip,login_date,create_by,create_date,update_by,update_date)
+		values(#{id},#{password},#{authFlag},#{loginIP},#{loginDate},#{createBy},#{createDate},#{updateBy},#{updateDate})
+	</insert>
+	<select id="checkByMobile" resultType="int">
+		select 
+		count(*)
+		from sys_userinfo
+		where mobile=#{mobile}
+	</select>
+</mapper>
