@@ -27,18 +27,30 @@ public abstract class DataEntity<T> implements Serializable {
 	 * 实体编号（唯一标识）
 	 */
 	protected String id;
-
-	protected String remarks; // 备注
-
-	protected User createBy; // 创建者
-
-	protected Date createDate; // 创建日期
-
-	protected User updateBy; // 更新者
-
-	protected Date updateDate; // 更新日期
-
-	protected String delFlag; // 删除标记（0：正常；1：删除）
+	/**
+	 * 备注
+	 */
+	protected String remarks;
+	/**
+	 * 创建者
+	 */
+	protected User createBy;
+	/**
+	 * 创建日期
+	 */
+	protected Date createDate;
+	/**
+	 * 更新者
+	 */
+	protected User updateBy;
+	/**
+	 * 更新日期
+	 */
+	protected Date updateDate;
+	/**
+	 * 删除标记（0：正常；1：删除）
+	 */
+	protected String delFlag;
 
 	public String getId() {
 		return id;
@@ -63,6 +75,7 @@ public abstract class DataEntity<T> implements Serializable {
 	public void setCreateBy(User createBy) {
 		this.createBy = createBy;
 	}
+
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	public Date getCreateDate() {
 		return createDate;
@@ -79,6 +92,7 @@ public abstract class DataEntity<T> implements Serializable {
 	public void setUpdateBy(User updateBy) {
 		this.updateBy = updateBy;
 	}
+
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	public Date getUpdateDate() {
 		return updateDate;

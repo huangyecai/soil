@@ -11,7 +11,7 @@ import yecai.garden.soil.system.common.annotation.MyBatisDao;
 @MyBatisDao
 public interface UserDao {
 	/**
-	 * 根据id获取用户详情
+	 * 根据id获取用户登陆详情
 	 * @param user
 	 * @return
 	 */
@@ -39,5 +39,5 @@ public interface UserDao {
 	 * @param mobile
 	 * @return
 	 */
-	public int checkByMobile(String mobile);
+	public User getByMobile(String mobile);
 }

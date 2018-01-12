@@ -6,8 +6,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import yecai.garden.soil.hr.user.entity.User;
 import yecai.garden.soil.hr.user.service.UserService;
+import yecai.garden.soil.system.common.tool.CookieTool;
 
 /**
  * 用户Controller
@@ -34,10 +33,11 @@ public class UserController {
 	 * @param request
 	 * @param response
 	 * @return
+	 * @throws Exception 
 	 */
 	@RequestMapping(value = "register", method = RequestMethod.GET)
 	@ResponseBody
-	public  Map<String, Object> userInser(User user, HttpServletRequest request, HttpServletResponse response){
+	public  Map<String, Object> userInser(User user, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		Map<String, Object> map =new HashMap<String, Object>();
 		int result=userService.register(user);
 		String code = "200";
@@ -79,26 +79,38 @@ public class UserController {
 	 * @param account(账号)
 	 * @param password(密码)
 	 * @return
+	 * @throws Exception 
 	 */
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	@ResponseBody
 	public Map<String, Object> login(String account, String password, HttpServletRequest request,
-			HttpServletResponse response) {
+			HttpServletResponse response) throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
 		String code = "200";
 		String message = "success";
 		String result = "";
+		User user=null;
 		if (account != null && !account.equals("") && password != null && !password.equals("")) {
 			//数据验证
-			
+			if (userService.checkAccount(account, password)) {
+				user=userService.getByMobile(account);
+				//添加cookie
+				CookieTool.addCookie(account, request, response);
+				CookieTool.addCookie("sysUserId", user.getId(), -1, "/", request, response);
+			}else{
+				message = "fail";
+				code = "201";
+				result = "用户名或密码错误！";
+			}
 		} else {
 			message = "fail";
 			code = "201";
-			result = "用户名或密码错误！";
+			result = "用户名或密码不能为空！";
 		}
 		map.put("status", code);
 		map.put("message", message);
 		map.put("result", result);
+		map.put("user", user);
 		return map;
 	}
 }

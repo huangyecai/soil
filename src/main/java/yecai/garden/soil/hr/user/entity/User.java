@@ -173,12 +173,12 @@ public class User extends DataEntity<User>{
     /**
      * 是否已上传过头像，0：未上传，1：已上传
      */
-    private Byte isUpload;
+    private int isUpload;
 
     /**
      * 是否删除
      */
-    private Byte isDelete;
+    private int isDelete;
 
     /**
      * 联系人列表及信息
@@ -742,7 +742,7 @@ public class User extends DataEntity<User>{
      * 是否已上传过头像，0：未上传，1：已上传
      * @return is_upload 是否已上传过头像，0：未上传，1：已上传
      */
-    public Byte getIsUpload() {
+    public int getIsUpload() {
         return isUpload;
     }
 
@@ -750,7 +750,7 @@ public class User extends DataEntity<User>{
      * 是否已上传过头像，0：未上传，1：已上传
      * @param isUpload 是否已上传过头像，0：未上传，1：已上传
      */
-    public void setIsUpload(Byte isUpload) {
+    public void setIsUpload(int isUpload) {
         this.isUpload = isUpload;
     }
 
@@ -758,7 +758,7 @@ public class User extends DataEntity<User>{
      * 是否删除
      * @return is_delete 是否删除
      */
-    public Byte getIsDelete() {
+    public int getIsDelete() {
         return isDelete;
     }
 
@@ -766,7 +766,7 @@ public class User extends DataEntity<User>{
      * 是否删除
      * @param isDelete 是否删除
      */
-    public void setIsDelete(Byte isDelete) {
+    public void setIsDelete(int isDelete) {
         this.isDelete = isDelete;
     }
 

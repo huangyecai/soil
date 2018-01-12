@@ -21,13 +21,16 @@ public class UserTest {
 	private UserService userService;
 
 	@Test
-	public void test() {
-//		User user = new User();
-//		user.setId("2");
-//		User list = userService.getInfoById(user);
-//		System.out.println(list.getName());
-		boolean bool= userService.checkUserByMobile("123");
-		System.out.println(bool);
-		
+	public void test() throws Exception {
+//		User user=new User();
+//		user.setMobile("123");
+//		user.setPassword("12");
+//		user.setFamilyName("黄");
+//		user.setFirstName("野菜");
+////		int result=userService.register(user);
+//		boolean result=userService.checkAccount(user.getMobile(), user.getPassword());
+//		System.out.println(result);
+		User user=userService.getByMobile("12312312312312");
+		System.out.println(user.getMobile());
 	}
 }

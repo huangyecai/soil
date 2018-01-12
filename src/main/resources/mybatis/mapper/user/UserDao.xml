@@ -57,9 +57,9 @@
 	</sql>
 	<select id="get" resultType="yecai.garden.soil.hr.user.entity.User">
 		select
-		<include refid="dateList" />
-		from sys_userinfo
-		where id = #{id,jdbcType=VARCHAR}
+		<include refid="dateList1" />
+		from sys_user
+		where user_id = #{id,jdbcType=VARCHAR}
 	</select>
 	<!-- 根据编号获得投票 -->
 	<select id="getById" resultType="yecai.garden.soil.hr.user.entity.User">
@@ -121,9 +121,9 @@
 		sys_user(user_id,password,auth_flag,login_ip,login_date,create_by,create_date,update_by,update_date)
 		values(#{id},#{password},#{authFlag},#{loginIP},#{loginDate},#{createBy},#{createDate},#{updateBy},#{updateDate})
 	</insert>
-	<select id="checkByMobile" resultType="int">
+	<select id="getByMobile" resultType="yecai.garden.soil.hr.user.entity.User">
 		select 
-		count(*)
+		<include refid="dateList" />
 		from sys_userinfo
 		where mobile=#{mobile}
 	</select>
