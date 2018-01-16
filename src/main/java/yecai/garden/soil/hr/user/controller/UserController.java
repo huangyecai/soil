@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import yecai.garden.soil.hr.user.entity.User;
 import yecai.garden.soil.hr.user.service.UserService;
 import yecai.garden.soil.system.common.tool.CookieTool;
+import yecai.garden.soil.system.common.tool.HttpReturnTool;
 
 /**
  * 用户Controller
@@ -40,23 +41,7 @@ public class UserController {
 	public  Map<String, Object> userInser(User user, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		Map<String, Object> map =new HashMap<String, Object>();
 		int result=userService.register(user);
-		String code = "200";
-		String message = "success";
-		String resultStr = "";
-		if (result==1) {
-			code = "200";
-			message = "success";
-			resultStr = "";
-		}else
-		{
-			message = "fail";
-			code = "201";
-			resultStr = "用户名或密码错误！";
-		}		 
-		map.put("status", code);
-		map.put("message", message);
-		map.put("result", resultStr);
-		return map;
+		return  HttpReturnTool.returnMap(result);
 	}
 	/**
 	 * 通过id获取user信息
@@ -66,11 +51,9 @@ public class UserController {
 	 */
 	@RequestMapping(value = "userinfo", method = RequestMethod.GET)
 	@ResponseBody
-	public Map<String, Object> getuser(User user, HttpServletRequest request, HttpServletResponse response) {
-		Map<String, Object> map = new HashMap<String, Object>(16);
+	public Map<String, Object> getUser(User user, HttpServletRequest request, HttpServletResponse response) {
 		User user1=userService.getInfoById(user);
-		map.put("user", user1);
-		return map;
+		return  HttpReturnTool.returnMap("200","success","user",user1);
 	}
 
 	/**
@@ -86,9 +69,6 @@ public class UserController {
 	public Map<String, Object> login(String account, String password, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
-		String code = "200";
-		String message = "success";
-		String result = "";
 		User user=null;
 		if (account != null && !account.equals("") && password != null && !password.equals("")) {
 			//数据验证
@@ -97,20 +77,9 @@ public class UserController {
 				//添加cookie
 				CookieTool.addCookie(account, request, response);
 				CookieTool.addCookie("sysUserId", user.getId(), -1, "/", request, response);
-			}else{
-				message = "fail";
-				code = "201";
-				result = "用户名或密码错误！";
+				return  HttpReturnTool.returnMap("200","success","user",user);
 			}
-		} else {
-			message = "fail";
-			code = "201";
-			result = "用户名或密码不能为空！";
 		}
-		map.put("status", code);
-		map.put("message", message);
-		map.put("result", result);
-		map.put("user", user);
-		return map;
+		return    HttpReturnTool.returnMap("201","fail","用户名或密码错误！");
 	}
 }
