@@ -30,7 +30,7 @@ public class UserTest {
 ////		int result=userService.register(user);
 //		boolean result=userService.checkAccount(user.getMobile(), user.getPassword());
 //		System.out.println(result);
-		User user=userService.getByMobile("12312312312312");
+		User user=userService.getByMobile("123");
 		System.out.println(user.getMobile());
 	}
 }

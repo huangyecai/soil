@@ -77,6 +77,7 @@ public class UserController {
 				//添加cookie
 				CookieTool.addCookie(account, request, response);
 				CookieTool.addCookie("sysUserId", user.getId(), -1, "/", request, response);
+				CookieTool.addCookie("sysUserName",java.net.URLEncoder.encode( user.getName(),"utf8"), -1, "/", request, response);
 				return  HttpReturnTool.returnMap("200","success","user",user);
 			}
 		}
