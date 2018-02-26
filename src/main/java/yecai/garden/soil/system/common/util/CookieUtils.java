@@ -1,4 +1,4 @@
-package yecai.garden.soil.system.common.tool;
+package yecai.garden.soil.system.common.util;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author yecai
  * @date 2018-01-10
  */
-public class CookieTool {
+public class CookieUtils {
 	private final static String COOKIE_NAME = "user";
 
 	/**

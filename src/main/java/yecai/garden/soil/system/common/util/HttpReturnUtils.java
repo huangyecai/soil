@@ -1,4 +1,4 @@
-package yecai.garden.soil.system.common.tool;
+package yecai.garden.soil.system.common.util;
 
 
 import java.util.HashMap;
@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * 返回工具类
  */
-public class HttpReturnTool {
+public class HttpReturnUtils {
     /**
      * 按状态返回
      * @param state

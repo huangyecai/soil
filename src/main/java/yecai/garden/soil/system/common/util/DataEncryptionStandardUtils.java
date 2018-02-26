@@ -1,4 +1,4 @@
-package yecai.garden.soil.system.common.tool;
+package yecai.garden.soil.system.common.util;
 
 import java.security.SecureRandom;
 
@@ -17,7 +17,7 @@ import sun.misc.BASE64Encoder;
  * @date 2018-01-10
  */
 @SuppressWarnings("restriction")
-public class DataEncryptionStandardTool {
+public class DataEncryptionStandardUtils {
 	// 密码，长度要是8的倍数
 	private final static String PASSWORD = "huangyecai";
 	private final static String ENCODE = "ISO-8859-1";
