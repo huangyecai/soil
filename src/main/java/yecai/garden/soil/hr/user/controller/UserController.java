@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import yecai.garden.soil.hr.user.entity.User;
 import yecai.garden.soil.hr.user.service.UserService;
-import yecai.garden.soil.system.common.tool.CookieTool;
-import yecai.garden.soil.system.common.tool.HttpReturnTool;
+ 
+import yecai.garden.soil.system.common.util.CookieUtils;
+import yecai.garden.soil.system.common.util.HttpReturnUtils;
 
 /**
  * 用户Controller
@@ -41,7 +42,7 @@ public class UserController {
 	public  Map<String, Object> userInser(User user, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		Map<String, Object> map =new HashMap<String, Object>();
 		int result=userService.register(user);
-		return  HttpReturnTool.returnMap(result);
+		return  HttpReturnUtils.returnMap(result);
 	}
 	/**
 	 * 通过id获取user信息
@@ -53,7 +54,7 @@ public class UserController {
 	@ResponseBody
 	public Map<String, Object> getUser(User user, HttpServletRequest request, HttpServletResponse response) {
 		User user1=userService.getInfoById(user);
-		return  HttpReturnTool.returnMap("200","success","user",user1);
+		return  HttpReturnUtils.returnMap("200","success","user",user1);
 	}
 
 	/**
@@ -75,12 +76,12 @@ public class UserController {
 			if (userService.checkAccount(account, password)) {
 				user=userService.getByMobile(account);
 				//添加cookie
-				CookieTool.addCookie(account, request, response);
-				CookieTool.addCookie("sysUserId", user.getId(), -1, "/", request, response);
-				CookieTool.addCookie("sysUserName",java.net.URLEncoder.encode( user.getName(),"utf8"), -1, "/", request, response);
-				return  HttpReturnTool.returnMap("200","success","user",user);
+				CookieUtils.addCookie(account, request, response);
+				CookieUtils.addCookie("sysUserId", user.getId(), -1, "/", request, response);
+				CookieUtils.addCookie("sysUserName",java.net.URLEncoder.encode( user.getName(),"utf8"), -1, "/", request, response);
+				return  HttpReturnUtils.returnMap("200","success","user",user);
 			}
 		}
-		return    HttpReturnTool.returnMap("201","fail","用户名或密码错误！");
+		return    HttpReturnUtils.returnMap("201","fail","用户名或密码错误！");
 	}
 }

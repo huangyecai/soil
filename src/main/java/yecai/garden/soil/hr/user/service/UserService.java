@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 
 import yecai.garden.soil.hr.user.dao.UserDao;
 import yecai.garden.soil.hr.user.entity.User;
-import yecai.garden.soil.system.common.tool.DataEncryptionStandardTool;
+import yecai.garden.soil.system.common.util.DataEncryptionStandardUtils;
+
 
 /**
  * 用户Service
@@ -83,7 +84,7 @@ public class UserService {
 			//拼凑姓名
 			user.setName(user.getFamilyName()+user.getFirstName());
 			//加密密码
-			String password= DataEncryptionStandardTool.encrypt(user.getPassword());
+			String password= DataEncryptionStandardUtils.encrypt(user.getPassword());
 			user.setPassword(password);
 			user.preInsert();
 			this.insert(user);
@@ -111,7 +112,7 @@ public class UserService {
 	 */
 	public boolean checkPassword(String password,String userPassword) throws Exception{		 
 			 
-			String pw=DataEncryptionStandardTool.decrypt(password);
+			String pw=DataEncryptionStandardUtils.decrypt(password);
 			if (pw.equals(userPassword)) {
 				return true;
 			}
