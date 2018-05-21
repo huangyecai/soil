@@ -50,6 +50,7 @@
         <property name="ignoreAcceptHeader" value="true"/>
         <property name="favorPathExtension" value="true"/>
 	</bean>
-    
+    <!-- 支持上传文件 -->  
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />  
   
 </beans>
