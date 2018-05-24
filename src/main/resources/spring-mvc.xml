@@ -52,5 +52,6 @@
 	</bean>
     <!-- 支持上传文件 -->  
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />  
-  
+  	<!-- 访问静态资源 -->
+  	<mvc:default-servlet-handler/>
 </beans>
