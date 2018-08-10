@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import yecai.garden.soil.hr.user.entity.User;
-import yecai.garden.soil.hr.user.service.UserService;
+import com.yecai.garden.soil.modules.system.user.entity.User;
+import com.yecai.garden.soil.modules.system.user.service.UserService;
 
 /**
  * 
@@ -30,7 +30,8 @@ public class UserTest {
 ////		int result=userService.register(user);
 //		boolean result=userService.checkAccount(user.getMobile(), user.getPassword());
 //		System.out.println(result);
-		User user=userService.getByMobile("123");
-		System.out.println(user.getMobile());
+//		User user=userService.getByMobile("123");
+//		System.out.println(user.getMobile());
+	   
 	}
 }

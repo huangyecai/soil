@@ -1,4 +1,4 @@
-package yecai.garden.soil.system.common.util;
+package com.yecai.garden.soil.system.common.util;
 
 import java.security.SecureRandom;
 

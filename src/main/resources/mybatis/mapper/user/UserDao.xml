@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="yecai.garden.soil.hr.user.dao.UserDao">
+<mapper namespace="com.yecai.garden.soil.modules.system.user.dao.UserDao">
 	<sql id="dateList1">
 		user_id,
 		password,
@@ -55,14 +55,14 @@
 		is_upload AS "isUpload",
 		is_delete AS "isDelete"
 	</sql>
-	<select id="get" resultType="yecai.garden.soil.hr.user.entity.User">
+	<select id="get" resultType="com.yecai.garden.soil.modules.system.user.entity.User">
 		select
 		<include refid="dateList1" />
 		from sys_user
 		where user_id = #{id,jdbcType=VARCHAR}
 	</select>
 	<!-- 根据编号获得投票 -->
-	<select id="getById" resultType="yecai.garden.soil.hr.user.entity.User">
+	<select id="getById" resultType="com.yecai.garden.soil.modules.system.user.entity.User">
 		SELECT
 		*
 		FROM sys_userinfo a
@@ -121,7 +121,7 @@
 		sys_user(user_id,password,auth_flag,login_ip,login_date,create_by,create_date,update_by,update_date)
 		values(#{id},#{password},#{authFlag},#{loginIP},#{loginDate},#{createBy},#{createDate},#{updateBy},#{updateDate})
 	</insert>
-	<select id="getByMobile" resultType="yecai.garden.soil.hr.user.entity.User">
+	<select id="getByMobile" resultType="com.yecai.garden.soil.modules.system.user.entity.User">
 		select 
 		<include refid="dateList" />
 		from sys_userinfo

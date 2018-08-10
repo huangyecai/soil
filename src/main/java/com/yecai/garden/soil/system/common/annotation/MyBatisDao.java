@@ -1,4 +1,4 @@
-package yecai.garden.soil.system.common.annotation;
+package com.yecai.garden.soil.system.common.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

@@ -14,13 +14,13 @@
     
      
     <!-- 使用Annotation自动注册Bean,只扫描@Controller -->
-	<context:component-scan base-package="yecai.garden.soil" use-default-filters="false"><!-- base-package 如果多个，用“,”分隔 -->
+	<context:component-scan base-package="com.com.yecai.garden.soil" use-default-filters="false"><!-- base-package 如果多个，用“,”分隔 -->
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
     
-    <context:component-scan base-package="yecai.garden.soil"/>
+    <context:component-scan base-package="com.yecai.garden.soil"/>
     <aop:aspectj-autoproxy proxy-target-class="true"/>
-    <bean class="yecai.garden.soil.system.common.exception.GlobalExceptionResolver" />
+    <bean class="com.yecai.garden.soil.system.common.exception.GlobalExceptionResolver" />
 	<!-- 默认的注解映射的支持，org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping -->
 	<mvc:annotation-driven content-negotiation-manager="contentNegotiationManager">
 		<mvc:message-converters register-defaults="true">

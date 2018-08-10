@@ -1,4 +1,4 @@
-package yecai.garden.soil.common.controller;
+package com.yecai.garden.soil.modules.system.common.file.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,8 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.yecai.garden.soil.modules.system.user.entity.User;
+
 import net.sf.json.JSONObject;
-import yecai.garden.soil.hr.user.entity.User;
 
 @Controller
 @RequestMapping(value ="file")

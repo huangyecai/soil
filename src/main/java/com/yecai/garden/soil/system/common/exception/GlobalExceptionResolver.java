@@ -1,4 +1,4 @@
-package yecai.garden.soil.system.common.exception;
+package com.yecai.garden.soil.system.common.exception;
 
 import java.util.Map;
 

@@ -1,7 +1,7 @@
-package yecai.garden.soil.hr.user.dao;
+package com.yecai.garden.soil.modules.system.user.dao;
 
-import yecai.garden.soil.hr.user.entity.User;
-import yecai.garden.soil.system.common.annotation.MyBatisDao;
+import com.yecai.garden.soil.modules.system.user.entity.User;
+import com.yecai.garden.soil.system.common.annotation.MyBatisDao;
 
 /**
  * 用户Dao

@@ -1,4 +1,4 @@
-package yecai.garden.soil.system.common.parents;
+package com.yecai.garden.soil.system.common.base.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -7,8 +7,7 @@ import java.util.UUID;
 import org.apache.commons.lang3.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
-import yecai.garden.soil.hr.user.entity.User;
+import com.yecai.garden.soil.modules.system.user.entity.User;
 
 /**
  * 实体类父类

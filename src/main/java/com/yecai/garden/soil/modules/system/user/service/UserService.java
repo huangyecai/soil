@@ -1,13 +1,11 @@
-package yecai.garden.soil.hr.user.service;
-
-import java.io.UnsupportedEncodingException;
+package com.yecai.garden.soil.modules.system.user.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import yecai.garden.soil.hr.user.dao.UserDao;
-import yecai.garden.soil.hr.user.entity.User;
-import yecai.garden.soil.system.common.util.DataEncryptionStandardUtils;
+import com.yecai.garden.soil.modules.system.user.dao.UserDao;
+import com.yecai.garden.soil.modules.system.user.entity.User;
+import com.yecai.garden.soil.system.common.util.DataEncryptionStandardUtils;
 
 
 /**

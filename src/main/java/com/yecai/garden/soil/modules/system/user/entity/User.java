@@ -1,8 +1,8 @@
-package yecai.garden.soil.hr.user.entity;
+package com.yecai.garden.soil.modules.system.user.entity;
 
 import java.util.Date;
 
-import yecai.garden.soil.system.common.parents.DataEntity;
+import com.yecai.garden.soil.system.common.base.entity.DataEntity;
 /**
  * 用户
  * @author yecai

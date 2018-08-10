@@ -1,4 +1,4 @@
-package yecai.garden.soil.hr.user.controller;
+package com.yecai.garden.soil.modules.system.user.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,11 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import yecai.garden.soil.hr.user.entity.User;
-import yecai.garden.soil.hr.user.service.UserService;
- 
-import yecai.garden.soil.system.common.util.CookieUtils;
-import yecai.garden.soil.system.common.util.HttpReturnUtils;
+import com.yecai.garden.soil.modules.system.user.entity.User;
+import com.yecai.garden.soil.modules.system.user.service.UserService;
+import com.yecai.garden.soil.system.common.util.CookieUtils;
+import com.yecai.garden.soil.system.common.util.HttpReturnUtils;
 
 /**
  * 用户Controller
